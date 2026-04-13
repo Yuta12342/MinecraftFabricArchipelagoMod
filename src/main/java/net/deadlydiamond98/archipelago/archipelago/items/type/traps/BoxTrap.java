@@ -34,7 +34,11 @@ public class BoxTrap extends AbstractTrapItem {
             }
         } else {
             Block[] fallingBlocks = {Blocks.GRAVEL, Blocks.SAND, Blocks.RED_SAND, Blocks.DIRT};
-            Block chosenBlock = fallingBlocks[player.getRandom().nextInt(fallingBlocks.length)];
+            // Rare chance to make it ANY block, including obsidian and bedrock
+            // Grab the registry, and get every block, adding it to the list.
+            Block[] allBlocks = net.minecraft.registry.Registries.BLOCK.stream().filter(block -> block != null).toArray(Block[]::new);
+
+            Block chosenBlock = player.getRandom().nextInt(100) < 5 ? allBlocks[player.getRandom().nextInt(allBlocks.length)] : fallingBlocks[player.getRandom().nextInt(fallingBlocks.length)];
             
             int layers = 1 + player.getRandom().nextInt(5);
             
@@ -59,5 +63,12 @@ public class BoxTrap extends AbstractTrapItem {
                 }
             }
         }
+    }
+
+    private Block[] appendToArray(Block[] fallingBlocks, Block block) {
+        Block[] newArray = new Block[fallingBlocks.length + 1];
+        System.arraycopy(fallingBlocks, 0, newArray, 0, fallingBlocks.length);
+        newArray[fallingBlocks.length] = block;
+        return newArray;
     }
 }

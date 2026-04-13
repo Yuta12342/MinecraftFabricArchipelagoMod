@@ -20,7 +20,7 @@ public class Archipelago extends Client {
 
     public Archipelago() {
         super();
-        this.setGame("Minecraft Fabric");
+        this.setGame("Minecraft Fabric Yuta Edition");
         this.setItemsHandlingFlags(ItemsHandling.SEND_ITEMS + ItemsHandling.SEND_OWN_ITEMS + ItemsHandling.SEND_STARTING_INVENTORY);
 
         this.getEventManager().registerListener(new APPrintJsonEvents());

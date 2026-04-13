@@ -118,5 +118,10 @@ public class ArchipelagoItems {
         ITEMS.put("Teleport Trap", new TeleportTrap());
         ITEMS.put("Bee Trap", new BeeTrap());
         ITEMS.put("Literature Trap", new LiteratureTrap());
+        ITEMS.put("Lightning Trap", new LightningTrap());
+        ITEMS.put("Item Drop Trap", new ItemDropTrap());
+        ITEMS.put("Nighttime Trap", new NighttimeTrap());
+        ITEMS.put("Box Trap", new BoxTrap());
+        ITEMS.put("Shuffle Trap", new ShuffleTrap());
     }
 }
